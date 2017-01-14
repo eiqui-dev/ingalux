@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+	<template id="report_style" inherit_id="sale_order_chapters.style">
+		<xpath expr="."><t>
+			#cert_info, #forma_pago_info {
+				border: 1px solid black;
+				padding: 5px;
+			}
+			#cert_info {
+				vertical-align:bottom;
+			}
+			#order_sale_date {
+				padding-left: 1em;
+				margin: 0.8em 0;
+			}
+		</t></xpath>
+	</template>
+	
+</data>
+</openerp>

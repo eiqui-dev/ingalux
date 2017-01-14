@@ -36,6 +36,7 @@
     "data": [
         'views/inherit_sale_order_chapters_external_layout_header.xml',
         'views/inherit_sale_order_chapters_report_sale_order_document.xml',
+        'views/inherit_sale_order_chapters_style.xml',
     ],
     
     "demo": [],

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+	<template id="ingalux_external_layout_header" inherit_id="sale_order_chapters.external_layout_header">
+		<xpath expr="//td[@id='certs']" position="replace">
+			<td class="col-md-4 col-xs-4" id="certs">
+				<img src="/aloxa_ingalux/static/src/img/SelloISO__CE.jpg" class="img img-responsive" />
+			</td>
+		</xpath>
+	</template>
+	
+</data>
+</openerp>

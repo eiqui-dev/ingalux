@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+	<template id="report_sale_order_document" inherit_id="sale_order_chapters.report_sale_order_document">
+		<xpath expr="//div[@id='cover']//img" position="before">
+			<div class="row" style="text-align:right;">
+				<div class="col-md-offset-8 col-xs-offset-8 col-md-4 col-xs-4">
+					<img src="/aloxa_ingalux/static/src/img/SelloISO__CE.jpg" class="img img-responsive" />
+				</div>
+			</div>
+		</xpath>
+	</template>
+	
+</data>
+</openerp>

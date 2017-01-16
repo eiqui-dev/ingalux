@@ -8,12 +8,31 @@
 				border: 1px solid black;
 				padding: 5px;
 			}
-			#cert_info {
-				vertical-align:bottom;
-			}
 			#order_sale_date {
 				padding-left: 1em;
 				margin: 0.8em 0;
+			}
+			#cert_info {
+				margin-bottom: 2em;
+			}
+			
+			.table-info {
+				margin: 0 auto;
+				margin-bottom: 1em;
+			}
+			.table-info th {
+				background-color: gray;
+				font-weight: normal;
+			}
+			.table-info th, .table-info td {
+				text-align: center;
+				padding:3px;
+				border:1px solid black;
+			}
+			
+			.table-revs th, .table-revs td {
+				padding:3px;
+				border:1px solid black;
 			}
 		</t></xpath>
 	</template>

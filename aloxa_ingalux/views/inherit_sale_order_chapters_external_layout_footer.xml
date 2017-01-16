@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+	<template id="ingalux_external_layout_footer" inherit_id="sale_order_chapters.external_layout_footer">
+		<xpath expr="//t[@t-call='sale_order_chapters.generic_footer']" position="before">
+			<table class="table-info">
+				<thead>
+					<tr>
+						<th>Sale Order Nº</th>
+						<th><span t-esc="'Rev%d' % o.revision_number"/></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Nº <span t-esc="'%s rev%d' % (o.unrevisioned_name, o.revision_number)" /></td>
+						<td><span t-field="o.date_order" t-field-options='{"format": "dd/MM/yy"}' /></td>
+					</tr>
+				</tbody>
+			</table>
+		</xpath>
+	</template>
+	
+	<template id="ingalux_generic_footer" inherit_id="sale_order_chapters.generic_footer">
+		<xpath expr="//div[@id='left_footer']" position="inside">
+			<span>
+				Code: <span t-field="o.name"/>;
+				Revision: <span t-esc="o.revision_number or 0" />;
+				Date: <span t-field="o.date_order" t-field-options='{"format": "dd/MM/yy"}' />
+			</span>
+		</xpath>
+	</template>
+	
+</data>
+</openerp>

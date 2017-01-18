@@ -39,16 +39,17 @@
 		</xpath>
 		
 		<!-- TEXTO LEGAL -->
-		<xpath expr="//table[@class='col-md-12 col-xs-12 table-chapter']" position="after">
+		<xpath expr="//table[@class='col-md-12 col-xs-12 table-chapter table table-condensed']" position="after">
 			<span>&amp;nbsp;</span>
 			<ul>
-				<li><i>En estos precios no se incluye el I.V.A.</i></li>
-				<li><i>Este presupuesto se ha elaborado en base a mediciones aportadas por el cliente; en caso de realizarse los trabajos se facturarían las unidades realmente ejecutadas.</i></li>
+				<li>- <i>En estos precios no se incluye el I.V.A.</i></li>
+				<li>- <i>Este presupuesto se ha elaborado en base a mediciones aportadas por el cliente; en caso de realizarse los trabajos se facturarían las unidades realmente ejecutadas.</i></li>
 			</ul>
 
-			<![CDATA[
-				<p style="page-break-before:always;"> </p>
-			]]>
+			<!-- PAGE BREAK -->
+			<p style="page-break-after:always;"> </p>
+			<!-- -->
+			
 			<div class="row" id="cert_info">
 				<table class="col-md-12">
 					<tbody>
@@ -67,25 +68,25 @@
 				</table>
 			</div>
 			
-			<ul>
+			<ul id="inga_info">
 				<li>
-					<strong>SEGURIDAD</strong><br/>
+					<strong>&amp;#10003; SEGURIDAD</strong><br/>
 					Montajes Metálicos Ingalux, S. L cumplirá con todas las normas de obligado cumplimento en aplicación a la Ley de Prevención de Riesgos Laborales y el Reglamento de los Servicios de Prevención. De igual manera Montajes Metálicos Ingalux, S.L cumplirá lo dispuesto en el R.D 1627/1997 por el que se establecen disposiciones mínimas de seguridad y salud en las obras de construcción, y será responsable de cumplir y hacer cumplir a su personal lo establecido en el Plan de Seguridad y Salud.
 				</li>
 				<li>
-					<strong>NOTAS ACLARATORIAS</strong><br/>
+					<strong>&amp;#10003; NOTAS ACLARATORIAS</strong><br/>
 					Todas las partidas de este pedido serán propiedad de Montajes Metálicos Ingalux, S.L hasta su total pago no siendo de nuestra responsabilidad las instalaciones anexas a estas realizadas por otros aún en el caso de retirada de nuestros materiales. El suministro eléctrico, albañilería, permisos y custodia de los materiales serán por cuenta y responsabilidad del cliente.
 				</li>
 				<li>
-					<strong>FORMA DE PAGO</strong><br/>
-					La forma de pago será a falta de otro convenio expreso y firmado de las partes la siguiente:
-					<div id="forma_pago_info">
+					<strong>&amp;#10003; FORMA DE PAGO</strong><br/>
+					La forma de pago será a falta de otro convenio expreso y firmado de las partes la siguiente:<br/>
+					<span id="forma_pago_info">
 						El plazo de pago máximo es de 60 días, según la Ley 15/2010 de 5 Julio de medidas de lucha contra la morosidad de las operaciones comerciales.
-					</div>
+					</span>
 					El incumplimiento de cualquiera de las obligaciones de pago dará derecho a Montajes Metálicos Ingalux, S.L. a, paralizar la ejecución del resto de la obra hasta el completo pago, y a reclamar al cliente el importe adeudado y demás gastos producidos hasta la fecha del incumplimiento, devengándose automáticamente y sin necesidad de requerimiento previo los intereses moratorios establecidos en la Ley 15/2010, de 5 de  Julio, por la que se establecen medidas de lucha contra la morosidad en las operaciones comerciales, o la que la pueda sustituir.
 				</li>
 				<li>
-					<strong>VALIDEZ DE LA OFERTA</strong><br/>
+					<strong>&amp;#10003; VALIDEZ DE LA OFERTA</strong><br/>
 					Oferta válida para <strong>30 días</strong> debido al estado del mercado del acero y de los materiales, en caso de ser superado este tiempo se procedería a revisar los precios.
 				</li>
 			</ul>

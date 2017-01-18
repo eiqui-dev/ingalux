@@ -33,12 +33,14 @@
     "depends": [
         'sale_order_chapters', 
         'sale_order_revision',
+        'website_quote',
     ],
     "data": [
         'views/inherit_sale_order_chapters_external_layout_header.xml',
         'views/inherit_sale_order_chapters_external_layout_footer.xml',
         'views/inherit_sale_order_chapters_report_sale_order_document.xml',
         'views/inherit_sale_order_chapters_style.xml',
+        'views/inherit_website_quote_view_sale_quote_template_form.xml',
     ],
     
     "demo": [],

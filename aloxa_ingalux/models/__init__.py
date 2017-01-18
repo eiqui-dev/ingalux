@@ -18,4 +18,5 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import models
+from . import inherit_sale_order
+from . import inherit_website_quote_sale_quote_line

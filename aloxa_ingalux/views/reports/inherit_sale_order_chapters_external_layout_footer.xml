@@ -8,7 +8,7 @@
 				<thead>
 					<tr>
 						<th>Sale Order Nº</th>
-						<th><span t-esc="'Rev%d' % o.revision_number"/></th>
+						<th>Date</th>
 					</tr>
 				</thead>
 				<tbody>

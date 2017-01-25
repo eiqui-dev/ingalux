@@ -43,3 +43,7 @@ class sale_order(osv.osv):
             res['value']['options'][cont][2].update({'chapter_id': option.chapter_id.id})
             cont=cont+1
         return res
+    
+    _columns = {
+        'title': fields.char('Title')
+    }

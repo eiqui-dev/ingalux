@@ -60,12 +60,12 @@
 				<table class="col-md-12">
 					<tbody>
 						<tr>
-							<td class="col-md-9 col-xs-9">
+							<td class="col-md-9 col-xs-9" style="vertical-align:middle;">
 								<p>Los componentes estructurales de acero fabricados por <strong>Montajes Metálicos Ingalux S.L.</strong> cumplen con las exigencias establecidas en la norma EN 1090-1 y disponen de <strong>marcado CE</strong>, tal y como obliga el Reglamento Europeo de Productos de Construcción nº 305/211.</p>
 								<p><strong>Nº de certificado: 1035-CPR-ES057882. Clase de ejecución EXC.2 (<a href="http://www.ingalux.com/UserFiles/ingalux/CertificadoCPFUNEEN1090.pdf">Ver certificado</a>)</strong></p>
 							</td>
 							<td class="col-md-3 col-xs-3" style="vertical-align:bottom;">
-								<img src="/aloxa_ingalux/static/src/img/SelloCE.jpg" class="img img-responsive pull-right" style="height:110px;"/>
+								<img src="/aloxa_ingalux/static/src/img/SelloCE.jpg" class="img img-responsive pull-right" style="height:90px;"/>
 								<img src="/aloxa_ingalux/static/src/img/QR_SelloCE.png" class="img img-responsive pull-left" style="height:70px; vertical-align:bottom;"/>
 								<div style="clear:both;"></div>
 							</td>

@@ -19,7 +19,7 @@
 #
 ##############################################################################
 from . import inherit_sale_order
+from . import contrac_contact
 from . import inherit_res_partner
 from . import inherit_account_analytic_account
-from . import contrac_contact
 from . import inherit_website_quote_sale_quote_line

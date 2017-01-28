@@ -29,6 +29,6 @@ class res_partner(models.Model):
     
     homologated = fields.Boolean('Homologated')
     homologated_description = fields.Char('Homologated Description')
-    contracs_contact_ids = fields.One2many('ingalux.contract.contact', 'partner_id ', string='Contracts')
+#   contracs_contact_ids = fields.One2many('ingalux.contract.contact', 'partner_id ', string='Contracts')
     
     

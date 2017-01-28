@@ -21,7 +21,7 @@
 from openerp import models, fields, api
 
 
-class inga_contract_contact(models.Model):
+class ingalux_contract_contact(models.Model):
     _name = 'ingalux.contract.contact'
     _description = "Contract Contacts"
     

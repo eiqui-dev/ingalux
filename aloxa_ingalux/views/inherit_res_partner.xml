@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+<!-- FORMS -->
+	<!-- FORM DE res.partner -->
+    <record id="homologated_form_res_partner_inherit" model="ir.ui.view">
+        <field name="name">homologated.form.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+		    <field name="priority" eval="18"/>
+		    <field name="arch" type="xml">
+			<xpath expr="//page[@name='sales_purchases']//field[@name='ref']" position="before">
+			    <field name="homologated" string="Homologated" attrs="{'invisible': [('supplier','=',False)]}" />
+			    <field name="homologated_description" string="Homologated Description" attrs="{'invisible': [('supplier','=',False)]"/>
+			</xpath>
+        </field>
+    </record>
+    
+<!-- TREES -->
+	<!-- TREE DE res.partner -->
+    <record id="homologated_tree_res_partner_inherit" model="ir.ui.view">
+        <field name="name">homologated.tree.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree" />
+		    <field name="priority" eval="18"/>
+		    <field name="arch" type="xml">
+			<xpath expr="//field[@name='email']" position="after">
+			    <field name="homologated" string="Homologated"/>
+			</xpath>
+        </field>
+    </record>
+ 
+<!--  SEARCH -->
+	<!--  SEARCH de res.partner -->
+<record model="ir.ui.view" id="view_res_partner_homologated_search">
+			<field name="name">search.res.partner.homologated.inherit</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_res_partner_filter" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='type_person']" position="before">
+					<filter name="homologated" string="Supplier Homologated"
+						domain="[('homologated', '=', True)]" />
+				</xpath>
+			</field>
+		</record>
+	</data>
+</openerp>

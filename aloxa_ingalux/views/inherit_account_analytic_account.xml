@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+		
+	    <!-- FORMS -->
+	<!-- FORM contacts in contracts-->
+    	<record id="contacts_contract_inherit_form" model="ir.ui.view">
+	        <field name="name">contracts.contract.view.form</field>
+	        <field name="model">account.analytic.account</field>
+	        <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+	        <field name="arch" type="xml">
+	           	<xpath expr="//page[@string='Contract Information']" position="after">
+	        		<page string="Contacts">    		
+	    				<group string="Contacts">
+	    					<field name="contacts_contract_ids" nolabel="1"/>	    					
+	           			</group>
+	          		</page>
+				</xpath>
+				<xpath expr="//field[@name='manager_id']" position="after">
+			    	<field name="warehouse_id" string="Ubication"/>
+				</xpath>
+			</field>
+		</record>
+		
+	</data>
+</openerp>

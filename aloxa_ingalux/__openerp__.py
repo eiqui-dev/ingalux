@@ -41,7 +41,12 @@
         'views/reports/inherit_sale_order_chapters_report_sale_order_document.xml',
         'views/reports/inherit_sale_order_chapters_style.xml',
         'views/reports/inherit_website_quote_view_sale_quote_template_form.xml',
+        'views/reports/inherit_description_stock_report_picking',
+        'views/reports/inherit_purchase_order_analytic_account',
         'views/inherit_sale_order.xml',
+        'views/inherit_res_partner.xml',
+        'views/contract_contact.xml',
+        'views/inherit_account_analytic_account.xml',
     ],
     
     "demo": [],

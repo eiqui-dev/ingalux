@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+<!--  Tree View Contacts in contract -->
+	
+	<record id="contract_contact_view_tree" model="ir.ui.view">
+ 		<field name="name">Contacts</field>
+ 		<field name="model">contrac.contact</field>	 		
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Contacts">
+				<field name="partner_id"/>
+				<field name="description"/>  	
+			</tree>
+		</field>
+	</record>
+	
+	
+</data>
+</openerp>
+	

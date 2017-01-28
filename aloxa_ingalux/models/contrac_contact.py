@@ -2,24 +2,29 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2016 Solucións Aloxa S.L. <info@aloxa.eu>
+#    Copyright (C) 2017 Solucións Aloxa S.L. <info@aloxa.eu>
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
+#    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
+#    GNU General Public License for more details.
 #
-#    You should have received a copy of the GNU Affero General Public License
+#    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import inherit_sale_order
-from . import inherit_res_partner
-from . import inherit_account_analytic_account
-from . import contrac_contact
-from . import inherit_website_quote_sale_quote_line
+from openerp import models, fields, api
+
+
+class inga_contract_contact(models.Model):
+    _name = 'ingalux.contract.contact'
+    _description = "Contract Contacts"
+    
+    partner_id = fields.Many2one('res.partner', 'Contact', required=True)
+    contract_id = fields.Many2one('account.analytic.account', 'Contract', required=True)
+    description = fields.Char('Contact Description')

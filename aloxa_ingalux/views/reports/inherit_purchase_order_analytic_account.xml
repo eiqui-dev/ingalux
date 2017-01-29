@@ -4,10 +4,10 @@
 
 	<template id="purchase_order_analytic_account" inherit_id="purchase.report_purchaseorder_document">
 
-		<xpath expr="//div[@class='page']/table//strong[.='Description']/../.." position="after">" 
-	        <th><strong>Project</strong></th>
+		<xpath expr="//div[@class='page']/table//strong[.='Description']/.." position="after">" 
+	        <th><strong>Proyect</strong></th>
         </xpath>	
-		<xpath expr="//span[@t-field='line.name']/../.." position="after">
+		<xpath expr="//span[@t-field='line.name']/.." position="after">
 			<td><span t-field="line.account_analytic_id"/></td>
 		</xpath>
 

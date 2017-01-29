@@ -2,25 +2,20 @@
 <openerp>
 <data>
 
-	<template id="report_delivery2" inherit_id="stock.report_picking">
-
-		<xpath expr="//div[@class='page']/table[@t-if='not o.pack_operation_ids']/thead/tr/th" position="after">
-			<th><strong>Description</strong></th>
-		</xpath>
-	
-		<xpath expr="//div[@class='page']/table[@t-if='not o.pack_operation_ids']/tbody/tr[@t-foreach='o.move_lines']/td" position="after">
-			<td>[<span t-field="move.product_id.name"/>]<span t-field="move.product_id.description"/></td>
-		</xpath>
-	
-		<xpath expr="//div[@class='page']/table[@t-if='o.pack_operation_ids']/thead/tr/th" position="after">
-			<th><strong>Description</strong></th>
-		</xpath>
-	
-		<xpath expr="//div[@class='page']/table[@t-if='o.pack_operation_ids']/tbody/tr[@t-foreach='o.pack_operation_ids']/td" position="after">
-			<td>[<span t-field="move.product_id.name"/>]<span t-field="move.product_id.description"/></td>
-		</xpath>
-
-</template>
+	<template id="report_picking_description" inherit_id="stock.report_picking">
+        	<xpath expr="//div[@class='page']/table[@t-if='not o.pack_operation_ids']/thead/tr/th" position="replace">
+            	<th><strong>Description</strong></th>
+            </xpath>
+            <xpath expr="//div[@class='page']/table[@t-if='not o.pack_operation_ids']/tbody/tr[@t-foreach='o.move_lines']/t/td" position="replace">
+				<td><span t-field="move.name"/></td>
+	    	</xpath>
+            <xpath expr="//div[@class='page']/table[@t-if='o.pack_operation_ids']/thead/tr/th" position="replace">
+				<th><strong>Description</strong></th>
+			</xpath>
+			<xpath expr="//div[@class='page']/table[@t-if='o.pack_operation_ids']/tbody/tr[@t-foreach='o.pack_operation_ids']/td" position="replace">
+				<td><span t-field="pack_operation.linked_move_operation_ids[0].move_id.name"/></td>
+			</xpath>
+	</template>
 	
 </data>
 </openerp>

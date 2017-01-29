@@ -45,7 +45,7 @@
         'views/reports/inherit_purchase_order_analytic_account.xml',
         'views/inherit_sale_order.xml',
         'views/inherit_res_partner.xml',
-        'views/contract_contact.xml',
+        'views/contrac_contact.xml',
         'views/inherit_account_analytic_account.xml',
     ],
     

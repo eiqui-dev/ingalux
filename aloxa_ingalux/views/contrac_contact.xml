@@ -16,6 +16,19 @@
 		</field>
 	</record>
 	
+	<record id="contract_contact_view_form" model="ir.ui.view">
+ 		<field name="name">contract.contact.view.form</field>
+ 		<field name="model">ingalux.contract.contact</field> 		
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+		<form string="Contacts">
+			<group>        	
+	        	      <field name="partner_id"/>
+	        	      <field name="description"/>	        	
+        	         </group>
+		</form>
+		</field>
+	</record>
 	
 </data>
 </openerp>

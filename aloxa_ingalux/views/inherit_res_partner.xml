@@ -37,7 +37,8 @@
 			<field name="model">res.partner</field>
 			<field name="inherit_id" ref="base.view_res_partner_filter" />
 			<field name="arch" type="xml">
-				<filter string="Suppliers" position="after"> 
+				<filter string="Suppliers" position="after">
+				        <separator/> 
                         <filter name="homologated" string="Supplier Homologated"
                                 domain="[('homologated', '=', True)]" />
                 </filter>

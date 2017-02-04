@@ -24,9 +24,7 @@
 	<template id="ingalux_generic_footer" inherit_id="sale_order_chapters.generic_footer">
 		<xpath expr="//div[@id='left_footer']" position="inside">
 			<span>
-				Code: <span t-field="o.name"/>;
-				Revision: <span t-esc="o.revision_number or 0" />;
-				Date: <span t-field="o.date_order" t-field-options='{"format": "dd/MM/yy"}' />
+				Código: FPC-05-F 02.b; Revisión: 1; Fecha : 02/06/16
 			</span>
 		</xpath>
 	</template>

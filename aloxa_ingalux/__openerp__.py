@@ -43,6 +43,8 @@
         'views/reports/inherit_website_quote_view_sale_quote_template_form.xml',
         'views/reports/inherit_description_stock_report_picking.xml',
         'views/reports/inherit_purchase_order_analytic_account.xml',
+        'views/reports/inherit_invoice_payment_mode_ingalux.xml',
+        'views/reports/inherit_external_layout_header_ingalux.xml',
         'views/inherit_sale_order.xml',
         'views/inherit_res_partner.xml',
         'views/contrac_contact.xml',

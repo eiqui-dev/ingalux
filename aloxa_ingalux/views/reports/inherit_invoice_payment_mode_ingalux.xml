@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+	<template id="report_invoice_payment_mode_ingalux" inherit_id="account.report_invoice_document">
+        
+		<data inherit_id="account.report_invoice_document">
+			<xpath expr="//p[@t-if='o.payment_term.note']" position="after">
+		    	<p t-foreach="o.move_id.line_id.sorted(key=lambda x: x.date_maturity)" t-as="m"> 
+		        	<t t-if="m.debit > 0"><strong>Vencimiento</strong>: <span t-field="m.date_maturity"/> / <span t-field="m.debit" t-field-options='{"widget":"monetary","display_currency":"o.currency_id"}'/> </t> 
+		        </p> 
+		    </xpath>
+	    </data>
+            
+    </template>
+	
+</data>
+</openerp>

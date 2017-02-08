@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+	<template id="report_header_ingalux" inherit_id="report.external_layout_header">
+        
+            <xpath expr="//div[@class='header']/div[@class='row']/div[@class='col-xs-3']" position="replace">
+				<div class="col-xs-3">
+                	<img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 80px;"/>
+            	</div>
+            </xpath>
+            
+            <xpath expr="//div[@class='header']/div[@class='row']/div[@t-field='company.rml_header1']" position="after">
+				<div class="col-md-4 col-xs-4" id="certs">
+					<img src="/aloxa_ingalux/static/src/img/SelloISO__CE.jpg" class="img img-responsive pull-right" style="height:80px;"/>
+	   			</div>
+            </xpath>
+            
+            <xpath expr="//div[@class='row']/div[@class='col-xs-4']" position="replace">
+				<div class="col-xs-4">
+                	<div t-field="company.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}" style="border-bottom: 1px solid black;" class="pull-left"/>
+                </div>
+                <div class="col-xs-4">
+					<div  style="border-bottom: 1px solid black;"  class="pull-left">
+						Delegación Centro<br/>c/ La Granja nº30, Planta 2ª<br/>28018 Alcobendas (Madrid)
+					</div>
+            	</div>
+            </xpath>
+            
+	</template>
+	
+</data>
+</openerp>

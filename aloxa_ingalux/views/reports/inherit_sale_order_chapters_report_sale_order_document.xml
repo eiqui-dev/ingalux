@@ -13,9 +13,9 @@
 		</xpath>
 		
 		<!-- TITULO -->
-		<xpath expr="//div[@id='cover']/h2[1]" position="after">
+		<xpath expr="//div[@id='cover']/h2[@t-field='o.partner_id.name']" position="after">
 			<t t-if="o.title">
-				<h2>FOR:</h2>
+				<h4>For:</h4>
 				<h2 t-field="o.title"/>
 			</t>
 		</xpath>
@@ -96,11 +96,11 @@
 					Oferta válida para <strong>30 días</strong> debido al estado del mercado del acero y de los materiales, en caso de ser superado este tiempo se procedería a revisar los precios.
 				</li>
 			</ul>
-			<strong id="order_sale_date">En <span t-field="o.company_id.city"/> a <t t-usertime="%d de %B de %Y" /></strong>
+			<strong id="order_sale_date">En Lugo a <t t-usertime="%d de %m del %Y"/></strong> 
 			<div class="row">
 				<div class="col-md-6 col-xs-6">
 					<p t-field="o.company_id.name"/>
-					<p>Fdo. <span t-field="user.name" /></p>
+					<p>Fdo. Luis Carrera</p>
 				</div>
 				<div class="col-md-6 col-xs-6">
 					<p>Conforme:</p>

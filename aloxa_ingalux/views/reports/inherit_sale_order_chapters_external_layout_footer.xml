@@ -7,7 +7,8 @@
 			<table class="table-info">
 				<thead>
 					<tr>
-						<th>Sale Order Nº</th>
+						<span t-if="o.state not in ['draft','sent']"><th>Sale Order Nº</th></span>
+               		    <span t-if="o.state in ['draft','sent']"><th>Quotation Nº</th></span>
 						<th>Date</th>
 					</tr>
 				</thead>

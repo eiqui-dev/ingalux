@@ -102,7 +102,7 @@
 			<div class="row">
 				<div class="col-md-6 col-xs-6">
 					<p t-field="o.company_id.name"/>
-					<p>Fdo. Jose Luis Carrera</p>
+					<p>Fdo. Jose Luis Carreira</p>
 				</div>
 				<div class="col-md-6 col-xs-6">
 					<p>Conforme:</p>

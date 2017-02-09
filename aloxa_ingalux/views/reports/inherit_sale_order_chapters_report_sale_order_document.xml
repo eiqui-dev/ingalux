@@ -13,7 +13,7 @@
 		</xpath>
 		
 		<!-- TITULO -->
-		<xpath expr="//div[@id='cover']/h2[@t-field='o.partner_id.name']" position="after">
+		<xpath expr="//div[@id='cover']/h4" position="before">
 			<t t-if="o.title">
 				<h4>For:</h4>
 				<h2 t-field="o.title"/>

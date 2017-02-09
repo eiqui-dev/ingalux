@@ -15,8 +15,10 @@
 		<!-- TITULO -->
 		<xpath expr="//div[@id='cover']/h4" position="before">
 			<t t-if="o.title">
+				<br/><br/><br/>
 				<h4>For:</h4>
 				<h2 t-field="o.title"/>
+				<br/><br/><br/>
 			</t>
 		</xpath>
 		
@@ -100,7 +102,7 @@
 			<div class="row">
 				<div class="col-md-6 col-xs-6">
 					<p t-field="o.company_id.name"/>
-					<p>Fdo. Luis Carrera</p>
+					<p>Fdo. Jose Luis Carrera</p>
 				</div>
 				<div class="col-md-6 col-xs-6">
 					<p>Conforme:</p>

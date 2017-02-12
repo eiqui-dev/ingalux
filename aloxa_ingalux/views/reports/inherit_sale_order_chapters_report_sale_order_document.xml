@@ -62,7 +62,7 @@
 				<li>- <i>En estos precios no se incluye el I.V.A.</i></li>
 			</ul>
 			<ul>
-			<div class="row" id="cert_info">
+			<div class="row" id="cert_info" style="margin-left:8px;margin-right:5px;">
                                    <table>
                                        <body>
 						<tr>
@@ -71,7 +71,7 @@
 								<p><strong>Nº de certificado: 1035-CPR-ES057882. Clase de ejecución EXC.2 (<a href="http://www.ingalux.com/UserFiles/ingalux/CertificadoCPFUNEEN1090.pdf">Ver certificado</a>)</strong></p>
 							</td>
 							<td class="col-md-3 col-xs-3" style="vertical-align:bottom;">
-								<img src="/aloxa_ingalux/static/src/img/SelloCE.jpg" class="img img-responsive pull-right" style="height:90px;"/>
+								<img src="/aloxa_ingalux/static/src/img/SelloCE.jpg" class="img img-responsive pull-right" style="height:70px;"/>
 								<img src="/aloxa_ingalux/static/src/img/QR_SelloCE.png" class="img img-responsive pull-left" style="height:70px; vertical-align:bottom;"/>
 								<div style="clear:both;"/>
 							</td>

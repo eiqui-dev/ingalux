@@ -103,11 +103,13 @@
 				</li>
 			</ul>
 			<strong id="order_sale_date">En Lugo a <span t-field="o.date_order" t-field-options='{"format": "dd"}' /> de <span t-field="o.date_order" t-field-options='{"format": "MMMM"}' /> del <span t-field="o.date_order" t-field-options='{"format": "yyyy"}' /> </strong> 
-			<div class="row">
+			<div class="row" style="margin-left:50px;">
 				<div class="col-md-6 col-xs-6">
-					<p t-field="o.company_id.name"/>                                     
-					<p>Fdo. Jose Luis Carreira</p>
-                    <p> <img src="/aloxa_ingalux/static/src/img/firmasello.jpg" class="img img-responsive pull-left" style="height:70px; vertical-align:bottom;"/> </p>
+					<p t-field="o.company_id.name"/>
+                    	<div class="backgroundimage" style="position:absolute;opacity:1,font-size:1em;width:50%;height:50%;z-index:1000;">
+                        	<img src="/aloxa_ingalux/static/src/img/firmasello.jpg"  style="height:80px;"/>
+                            <p>Fdo. Jose Luis Carreira</p>
+                        </div>                                                                                               
 				</div>
 				<div class="col-md-6 col-xs-6">
 					<p>Conforme:</p>

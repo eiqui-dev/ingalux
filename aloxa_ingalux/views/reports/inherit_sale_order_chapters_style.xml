@@ -60,26 +60,31 @@
 			 #content_chapter_summary {
 				padding: 0 8em;
 			}                      
-            #chapter_summary > tbody > tr:not(.summary_chapter_amount) > td{
+            		#chapter_summary > tbody > tr:not(.summary_chapter_amount) > td{
 				line-height: 0.3em;
-                border: 0 solid transparent;
+                		border: 0 solid transparent;
 			}
-            .summary_chapter_amount > td{
-                font-weight: bold;
-            }
-            .summary_chapter_amount > td:not(:first-child){
-                border: 1px solid black;
-                border-width: 0 0 1px 0;
-            }
-            .summary_chapter_amount > td:first-child{
-                border-width: 0;
-            }
-            .summary_chapter_amount > td:last-child{
-                border-width: 1px 0 1px 0;
-            }
-            .summary_chapter_amount td{
-                line-height: 0.3em !important;
-            }
+			.summary_chapter_amount > td{
+				font-weight: bold;
+			}
+             		.summary_chapter_amount > td:not(:first-child){
+				border-bottom: 1px solid #000;
+				border-left: none;
+				border-right: none;
+				border-top: none;
+		       }
+		       .summary_chapter_amount > td:first-child{
+				border-width: 0;
+		       }
+		      .summary_chapter_amount > td:last-child{
+				border-bottom: 1px solid #000;
+				border-left: none;
+				border-right: none;
+				border-top: 1px solid #000;
+		       }
+		      .summary_chapter_amount td{
+				line-height: 0.3em !important;
+		       }  
 		</t></xpath>
 	</template>
 	

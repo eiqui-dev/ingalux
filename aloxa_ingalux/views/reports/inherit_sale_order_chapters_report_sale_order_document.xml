@@ -79,14 +79,14 @@
 								</td>
 	                                                        <td>&amp;nbsp;</td>       
 								<td class="sum_chapter_price text-right" >
-									<strong t-esc="'%.2f' % sum_price"/>	
+									<strong t-esc="sum_price" t-esc-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/>	
 								</td>
 	                            <t t-set="numChapters" t-value="numChapters + 1"/>
 							</tr>
 	                        <tr class="summary_chapter_amount">
 	                        	<td>&amp;nbsp;</td>
 	                            <td class="text-right">Total.....:</td>
-	                            <td class="text-right"><span t-field="o.amount_untaxed"/></td>
+	                            <td class="text-right"><span t-field="o.amount_untaxed" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/></td>
 	                        </tr>
 						</tbody>
 					</table>

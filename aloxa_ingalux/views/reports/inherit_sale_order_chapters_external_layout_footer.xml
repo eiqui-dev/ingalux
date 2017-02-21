@@ -14,7 +14,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>Nº <span t-esc="'%s rev%d' % (o.unrevisioned_name, o.revision_number)" /></td>
+						<td>Nº <span t-esc="'%s rev%d' % (o.name, o.revision_number)" /></td>
 						<td><span t-field="o.date_order" t-field-options='{"format": "dd/MM/yy"}' /></td>
 					</tr>
 				</tbody>

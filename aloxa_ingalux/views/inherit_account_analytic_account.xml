@@ -22,10 +22,10 @@
 			</field>
 		</record>
 		
-		<record id="act_analytic_sales" model="ir.actions.act_window">
-            <field name="name">Sales</field>
+	<record id="act_analytic_sales" model="ir.actions.act_window">
+        	<field name="name">Sales</field>
             <field name="res_model">sale.order</field>
-	    	<field name="domain">[('project_id', '=',active_id)]"</field>
+	    	<field name="domain">[('project_id', '=',active_id)]</field>
      	</record>
      	
      	 <record id="account_analytic_account_button_sale" model="ir.ui.view">
@@ -45,7 +45,7 @@
         <record id="act_analytic_purchases" model="ir.actions.act_window">
             <field name="name">Purchases</field>
             <field name="res_model">purchase.order</field>
-	    	<field name="domain">[('order_line.account_analytic_id', '=',active_id)]"</field>
+	    	<field name="domain">[('order_line.account_analytic_id', '=',active_id)]</field>
      	</record>
      	
      	 <record id="account_analytic_account_button_purchase" model="ir.ui.view">

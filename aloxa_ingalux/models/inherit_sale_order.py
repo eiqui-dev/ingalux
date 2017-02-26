@@ -20,30 +20,48 @@
 ##############################################################################
 from openerp.osv import fields, osv
 
+
 class sale_order(osv.osv):
     _inherit = 'sale.order'
-    
+
     def onchange_template_id(self, cr, uid, ids, template_id, partner=False, fiscal_position=False, context=None):
-        res = super(sale_order, self).onchange_template_id(cr, uid, ids, template_id, partner=partner, fiscal_position=fiscal_position, context=context)
+        res = super(sale_order, self).onchange_template_id(cr,
+                                                           uid,
+                                                           ids,
+                                                           template_id,
+                                                           partner=partner,
+                                                           fiscal_position=fiscal_position,
+                                                           context=context)
         if not template_id:
             return True
 
         if context is None:
             context = {}
-        context = dict(context, lang=self.pool.get('res.partner').browse(cr, uid, partner, context).lang)
-        
-        quote_template = self.pool.get('sale.quote.template').browse(cr, uid, template_id, context=context)
+        context = dict(context,
+                       lang=self.pool.get('res.partner').browse(cr,
+                                                                uid,
+                                                                partner,
+                                                                context).lang)
+
+        quote_template = self.pool.get('sale.quote.template').browse(cr,
+                                                                     uid,
+                                                                     template_id,
+                                                                     context=context)
         cont = 1
         lines = quote_template.quote_line[1::]
         for line in lines:
-            res['value']['order_line'][cont][2].update({'chapter_id': line.chapter_id.id})
-            cont=cont+1
+            res['value']['order_line'][cont][2].update({
+                'chapter_id': line.chapter_id.id
+            })
+            cont = cont + 1
         cont = 0
         for option in quote_template.options:
-            res['value']['options'][cont][2].update({'chapter_id': option.chapter_id.id})
-            cont=cont+1
+            res['value']['options'][cont][2].update({
+                'chapter_id': option.chapter_id.id
+            })
+            cont = cont + 1
         return res
-    
+
     _columns = {
         'title': fields.text('Title')
     }

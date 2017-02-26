@@ -45,5 +45,5 @@ class sale_order(osv.osv):
         return res
     
     _columns = {
-        'title': fields.Text('Title')
+        'title': fields.text('Title')
     }

@@ -19,12 +19,7 @@
             <xpath expr="//div[@class='row']/div[@class='col-xs-4']" position="replace">
 				<div class="col-xs-4">
                 	<div t-field="company.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}" style="border-bottom: 1px solid black;" class="pull-left"/>
-                </div>
-                <div class="col-xs-4">
-					<div  style="border-bottom: 1px solid black;"  class="pull-left">
-						Delegación Centro<br/>c/ La Granja nº30, Planta 2ª<br/>28018 Alcobendas (Madrid)
-					</div>
-            	</div>
+                </div>                
             </xpath>
             
 	</template>

@@ -22,5 +22,47 @@
 			</field>
 		</record>
 		
+	<record id="act_analytic_sales" model="ir.actions.act_window">
+        	<field name="name">Sales</field>
+            <field name="res_model">sale.order</field>
+	    	<field name="domain">[('project_id', '=',active_id)]</field>
+     	</record>
+     	
+     	 <record id="account_analytic_account_button_sale" model="ir.ui.view">
+            <field name="name">account.analytic.account.button.sales</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form" />
+            <field name="arch" type="xml">
+                <xpath expr='//div[@name="buttons"]' position='inside'>
+                    <button class="oe_stat_button" type="action" icon="fa-strikethrough"
+                        name="%(aloxa_ingalux.act_analytic_sales)d"
+                        string="Sales" help="Sales related with this contract">
+                    </button>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="act_analytic_purchases" model="ir.actions.act_window">
+            <field name="name">Purchases</field>
+            <field name="res_model">purchase.order</field>
+	    	<field name="domain">[('order_line.account_analytic_id', '=',active_id)]</field>
+     	</record>
+     	
+     	 <record id="account_analytic_account_button_purchase" model="ir.ui.view">
+            <field name="name">account.analytic.account.button.purchase</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form" />
+            <field name="arch" type="xml">
+                <xpath expr='//div[@name="buttons"]' position='inside'>
+                    <button class="oe_stat_button" type="action" icon="fa-shopping-cart"
+                        name="%(aloxa_ingalux.act_analytic_purchases)d"
+                        string="Purchases" help="Purchases related with this contract">
+                    </button>
+                </xpath>
+            </field>
+        </record>
+     	
+     	
+		
 	</data>
 </openerp>

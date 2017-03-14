@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+	<template id="style" inherit_id="report.style">
+		<xpath expr="."><t>
+			@font-face {
+    			font-family: Roboto_Regular;
+    			src: url(/aloxa_ingalux/static/src/fonts/Roboto-Regular.ttf);
+			}
+			
+			body {
+				font-family: Roboto_Regular;
+				background-color: red;
+			}
+		</t></xpath>
+	</template>
+	
+</data>
+</openerp>

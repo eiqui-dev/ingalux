@@ -31,7 +31,9 @@
     'external_dependencies': {
     },
     "depends": [
-        'sale_order_chapters', 
+        'purchase',
+        'stock',
+        'sale_order_chapters',
         'sale_order_revision',
         'website_quote',
     ],
@@ -45,6 +47,7 @@
         'views/reports/inherit_purchase_order_analytic_account.xml',
         'views/reports/inherit_invoice_payment_mode_ingalux.xml',
         'views/reports/inherit_external_layout_header_ingalux.xml',
+        'views/reports/report_style.xml',
         'views/inherit_sale_order.xml',
         'views/inherit_res_partner.xml',
         'views/contrac_contact.xml',

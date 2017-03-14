@@ -16,7 +16,7 @@
 	   			</div>
             </xpath>
             
-            <xpath expr="//div[@class='row']/div[@class='col-xs-4']" position="replace">
+            <xpath expr="//div[@class='row']/div[@class='col-xs-5']" position="replace">
 				<div class="col-xs-4">
                 	<div t-field="company.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}" style="border-bottom: 1px solid black;" class="pull-left"/>
                 </div>

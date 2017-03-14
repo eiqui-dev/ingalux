@@ -38,12 +38,12 @@
                     <tr t-foreach="rev_old_revision_ids" t-as="rev">
 						<td><span t-esc="'Rev%d' % rev.revision_number or 0"/></td>
 						<td><span t-field="rev.create_date" t-field-options="{&quot;format&quot;: &quot;dd/MM/yy&quot;}"/></td>
-						<td><span t-field="rev.name"/> <span t-field="rev.revision_note"/></td>
+						<td><span t-field="rev.name"/> <!--span t-field="rev.revision_note"/--></td>
 					</tr>
                     <t t-if="len(o.old_revision_ids) == 0">
                     	<td><span t-esc="'Rev%d' % len(rev_old_revision_ids) or 0"/></td>
 					    <td><span t-field="o.date_order" t-field-options="{&quot;format&quot;: &quot;dd/MM/yy&quot;}"/></td>
-					    <td><span t-field="o.name"/> <span t-field="o.revision_note"/></td>
+					    <td><span t-field="o.name"/> <!--span t-field="o.revision_note"/--></td>
                     </t>
 					<!--t t-if="len(o.old_revision_ids) &lt; 3">
 						<tr t-foreach="range(3-len(o.old_revision_ids))" t-as="i">

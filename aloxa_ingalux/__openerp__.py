@@ -52,6 +52,7 @@
         'views/inherit_res_partner.xml',
         'views/contrac_contact.xml',
         'views/inherit_account_analytic_account.xml',
+        'views/inherit_purchase_order.xml'
     ],
     
     "demo": [],

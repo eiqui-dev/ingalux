@@ -6,12 +6,14 @@
 	        <field name="model">sale.order</field>
 	        <field name="inherit_id" ref="sale.view_order_form" /> 
 	        <field name="arch" type="xml">
-	        <field name="client_order_ref"/>
 	        	<xpath expr="//field[@name='client_order_ref']" position="after">
 	        		<field name="title"/>
-	        	</xpath>			 	
+	        	</xpath>	
+			<xpath expr="//field[@name='product_uom_qty']" position="attributes">
+                                 <attribute name="on_change"></attribute>
+                        </xpath>		 	
 	        </field>
 	    </record>
-		
+	
 	</data>
 </openerp>

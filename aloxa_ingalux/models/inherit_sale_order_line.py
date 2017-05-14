@@ -18,12 +18,20 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.osv import fields, osv
+from openerp import models, fields, api
+import html2text
 
-
-class sale_order_line(osv.osv):
+class sale_order_line(models.Model):
     _inherit = 'sale.order.line'
 
-    _columns = {
-        'name': fields.html('Description', required=True, readonly=True, states={'draft': [('readonly', False)]}),
-    }
+    
+    @api.depends('name')
+    def _compute_name_text(self):
+        for l in self:
+		text = html2text.HTML2Text()
+		text.ignore_links = True
+	        l.name_text = text.handle(l.name)
+
+    name= fields.Html('Description', required=True, readonly=True, states={'draft': [('readonly', False)]})
+    name_text= fields.Text('Description', readonly=True, compute='_compute_name_text')
+    

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+		
+        <record id="view_account_invoice_filter" model="ir.ui.view">
+    		<field name="name">account.invoice.select</field>
+      		<field name="model">account.invoice</field>
+	        <field name="inherit_id" ref="account.view_account_invoice_filter" />
+      		<field name="arch" type="xml">
+        		<field name="period_id" position="after">
+          			<field name="bank_id" filter_domain="['|', ('bank_id.bank_name','ilike',self), ('bank_id','ilike',self)]"/>
+		        </field>	
+			<filter name="group_by_partner_id" position="after">
+                                <filter string="Banco" context="{'group_by':'bank_id'}"/>
+                        </filter>
+      		</field>
+   	</record>
+		
+    </data>
+</openerp>

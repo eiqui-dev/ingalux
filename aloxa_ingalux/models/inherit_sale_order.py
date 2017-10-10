@@ -19,7 +19,7 @@
 #
 ##############################################################################
 from openerp.osv import fields, osv
-
+from openerp.exceptions import ValidationError
 
 class sale_order(osv.osv):
     _inherit = 'sale.order'
@@ -61,6 +61,11 @@ class sale_order(osv.osv):
             })
             cont = cont + 1
         return res
+
+
+    def onchange_title(self, cr, uid, ids, title, context=None):
+	if title and len(title.split('\n')) > 4:
+        	raise ValidationError('El titulo no debe sobrepasar de 4 lineas')
 
     _columns = {
         'title': fields.text('Title')

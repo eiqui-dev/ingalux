@@ -69,8 +69,8 @@ class sale_order(osv.osv):
 	if title and len(title.split('\n')) > 4:
         	raise ValidationError('El titulo no debe sobrepasar de 4 lineas')
 
-    def action_button_confirm(self, cr, uid, ids, context=None):
-	res = super(sale_order, self).action_button_confirm(cr, uid, ids, context=None)
+    def write(self, cr, uid, ids, vals, context={}):
+	res = super(sale_order, self).write(cr, uid, ids, vals, context=context)
 	order = self.browse(cr, uid, ids, context=context)
 	chapters = self.pool.get('sale_order_chapters.chapter').search(cr,uid,[('id', 'in', order.order_line.mapped('chapter_id.id'))], order='seq ASC')
 	c = 1
@@ -83,6 +83,7 @@ class sale_order(osv.osv):
 			order_line_obj.numeration = str(c)+'.'+str(l)
 			l += 1
 		c += 1
+	return res
 
     def copy_quotation(self, cr, uid, ids, context=None):
         action = super(sale_order, self).copy_quotation(cr, uid, ids, context=None)

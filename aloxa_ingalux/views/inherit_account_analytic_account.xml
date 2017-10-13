@@ -17,7 +17,8 @@
 	          		</page>
 				</xpath>
 				<xpath expr="//field[@name='manager_id']" position="after">
-			    	<field name="warehouse_id" string="Ubication"/>
+			    	<!--<field name="address_id" string="Ubication"/>-->
+				<field name="warehouse_id" string="Ubication"/>
 				</xpath>
 			</field>
 		</record>

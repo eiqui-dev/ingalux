@@ -9,6 +9,7 @@
 	        
 	        	<xpath expr="//field[@name='product_id']" position="after">
 	        		<field name="contract_id"/>
+                                <!--<field name="direccion_destino"/>-->
 	        	</xpath>	
 	        </field>		 	
 	    </record>

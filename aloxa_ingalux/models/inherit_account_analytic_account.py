@@ -28,4 +28,5 @@ class account_analytic_account(models.Model):
     _inherit='account.analytic.account'
     
     contacts_contract_ids = fields.One2many('ingalux.contract.contact', 'contract_id', string='Contacts')
+#    address_id = fields.Many2one ('res.partner', 'Ubication')
     warehouse_id = fields.Many2one ('stock.warehouse', 'Ubication')

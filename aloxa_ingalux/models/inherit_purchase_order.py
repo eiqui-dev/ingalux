@@ -27,4 +27,5 @@ class purchase_order(osv.osv):
 
     _columns = {
         'contract_id': fields.related('order_line', 'account_analytic_id', type='many2one', relation='account.analytic.account', string='Contract'),
+	'direccion_destino': fields.many2one('res.partner','Destino'),
     }

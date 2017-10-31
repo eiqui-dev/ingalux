@@ -21,12 +21,10 @@
 from openerp.osv import fields, osv
 
 
-class purchase_order(osv.osv):
-    _inherit = 'purchase.order'
+class purchase_order_line(osv.osv):
+    _inherit = 'purchase.order.line'
 
 
     _columns = {
-        'contract_id': fields.related('order_line', 'account_analytic_id', type='many2one', relation='account.analytic.account', string='Contract'),
-	'direccion_destino': fields.many2one('res.partner','Destino'),
-        'partner_ref': fields.char('Supplier Reference', states={'confirmed':[('readonly',False)],'approved':[('readonly',False)],'done':[('readonly',False)]}),
+	'partner_ref': fields.char('Supplier Reference', states={'confirmed':[('readonly',False)],'approved':[('readonly',False)],'done':[('readonly',False)]}),
     }

@@ -72,17 +72,18 @@ class sale_order(osv.osv):
     def write(self, cr, uid, ids, vals, context={}):
 	res = super(sale_order, self).write(cr, uid, ids, vals, context=context)
 	order = self.browse(cr, uid, ids, context=context)
-	chapters = self.pool.get('sale_order_chapters.chapter').search(cr,uid,[('id', 'in', order.order_line.mapped('chapter_id.id'))], order='seq ASC')
-	c = 1
-	for chapter in chapters:
-		chapter_obj = self.pool.get('sale_order_chapters.chapter').browse(cr,uid,chapter,context=None) 
-		order_lines = self.pool.get('sale.order.line').search(cr,uid,[('order_id', '=', order.id),('chapter_id','=',chapter_obj.id)])	
-		l = 1
-		for line in order_lines:
-			order_line_obj = self.pool.get('sale.order.line').browse(cr,uid,line,context=None)
-			order_line_obj.numeration = str(c)+'.'+str(l)
-			l += 1
-		c += 1
+        for rec in order:
+		chapters = self.pool.get('sale_order_chapters.chapter').search(cr,uid,[('id', 'in', rec.order_line.mapped('chapter_id.id'))], order='seq ASC')
+		c = 1
+		for chapter in chapters:
+			chapter_obj = self.pool.get('sale_order_chapters.chapter').browse(cr,uid,chapter,context=None) 
+			order_lines = self.pool.get('sale.order.line').search(cr,uid,[('order_id', '=', rec.id),('chapter_id','=',chapter_obj.id)])	
+			l = 1
+			for line in order_lines:
+				order_line_obj = self.pool.get('sale.order.line').browse(cr,uid,line,context=None)
+				order_line_obj.numeration = str(c)+'.'+str(l)
+				l += 1
+			c += 1
 	return res
 
     def copy_quotation(self, cr, uid, ids, context=None):

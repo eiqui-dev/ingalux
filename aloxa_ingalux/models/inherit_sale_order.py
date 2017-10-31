@@ -19,7 +19,9 @@
 #
 ##############################################################################
 from openerp.osv import fields, osv
-
+from openerp.exceptions import ValidationError
+import logging
+_logger = logging.getLogger(__name__)
 
 class sale_order(osv.osv):
     _inherit = 'sale.order'
@@ -62,6 +64,38 @@ class sale_order(osv.osv):
             cont = cont + 1
         return res
 
+
+    def onchange_title(self, cr, uid, ids, title, context=None):
+	if title and len(title.split('\n')) > 4:
+        	raise ValidationError('El titulo no debe sobrepasar de 4 lineas')
+
+    def write(self, cr, uid, ids, vals, context={}):
+	res = super(sale_order, self).write(cr, uid, ids, vals, context=context)
+	order = self.browse(cr, uid, ids, context=context)
+        for rec in order:
+		chapters = self.pool.get('sale_order_chapters.chapter').search(cr,uid,[('id', 'in', rec.order_line.mapped('chapter_id.id'))], order='seq ASC')
+		c = 1
+		for chapter in chapters:
+			chapter_obj = self.pool.get('sale_order_chapters.chapter').browse(cr,uid,chapter,context=None) 
+			order_lines = self.pool.get('sale.order.line').search(cr,uid,[('order_id', '=', rec.id),('chapter_id','=',chapter_obj.id)])	
+			l = 1
+			for line in order_lines:
+				order_line_obj = self.pool.get('sale.order.line').browse(cr,uid,line,context=None)
+				order_line_obj.numeration = str(c)+'.'+str(l)
+				l += 1
+			c += 1
+	return res
+
+    def copy_quotation(self, cr, uid, ids, context=None):
+        action = super(sale_order, self).copy_quotation(cr, uid, ids, context=None)
+	sale = self.browse(cr, uid, ids, context=context)
+	old_revision = self.pool.get('sale.order').browse(cr,uid,sale.old_revision_ids[0].id,context=context)
+	date = sale.date_order
+	sale.date_order = old_revision.date_order
+	old_revision.date_order = date
+        return action
+
     _columns = {
-        'title': fields.text('Title')
+        'title': fields.text('Title'),
+        'unrevisioned_name' : fields.char('Order Reference', copy=False, readonly=True), #FIX https://github.com/OCA/sale-workflow/issues/210
     }

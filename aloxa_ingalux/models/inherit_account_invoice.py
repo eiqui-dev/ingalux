@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
@@ -18,15 +19,14 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.osv import fields, osv
-
-
-class purchase_order(osv.osv):
-    _inherit = 'purchase.order'
-
-
-    _columns = {
-        'contract_id': fields.related('order_line', 'account_analytic_id', type='many2one', relation='account.analytic.account', string='Contract'),
-	'direccion_destino': fields.many2one('res.partner','Destino'),
-        'partner_ref': fields.char('Supplier Reference', states={'confirmed':[('readonly',False)],'approved':[('readonly',False)],'done':[('readonly',False)]}),
-    }
+from openerp import models, fields, api
+                                                                                                                                                                                           
+class AccountInvoice(models.Model):
+    _inherit='account.invoice'
+    
+    bank_id = fields.Many2one(
+        'res.partner.bank',
+        string='Banco',
+        related='payment_mode_id.bank_id',
+        copy=False, store=True
+    )   

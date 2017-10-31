@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+		
+        <record id="view_payments_filter" model="ir.ui.view">
+    		<field name="name">account.move.payment.filter</field>
+      		<field name="model">account.move.line</field>
+	        <field name="inherit_id" ref="account_due_list.view_payments_filter" />
+      		<field name="arch" type="xml">
+        		<field name="account_id" position="after">
+          			<field name="bank_id" filter_domain="['|', ('bank_id.bank_name','ilike',self), ('bank_id','ilike',self)]"/>
+		        </field>	
+			<filter string="Partner" position="after">
+                                <filter string="Banco" context="{'group_by':'bank_id'}"/>
+                        </filter>
+      		</field>
+   	</record>
+		
+    </data>
+</openerp>

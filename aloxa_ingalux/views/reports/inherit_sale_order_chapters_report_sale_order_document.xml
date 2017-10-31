@@ -2,155 +2,157 @@
 <openerp>
 <data>
 
-	<template id="report_sale_order_document" inherit_id="sale_order_chapters.report_sale_order_document">
+    <template id="report_sale_order_document" inherit_id="sale_order_chapters.report_sale_order_document">
 <!-- CERTIFICADOS -->
-		<xpath expr="//div[@id='cover']/img[@src='/logo.png']" position="before">
-			<div class="row">
-				<div class="col-md-offset-8 col-xs-offset-8 col-md-4 col-xs-4">
-					<img src="/aloxa_ingalux/static/src/img/SelloISO__CE.jpg" class="img img-responsive pull-right" style="height:100px;"/>
-				</div>
-			</div>
-		</xpath>
-		
-		<!-- TITULO -->
-		<xpath expr="//div[@id='cover']/h4" position="before">
-			<t t-if="o.title">
-                <br/><br/>
-				<h4>For:</h4>
-
-				<h3 style="padding-left:150px;padding-right:150px;" t-field="o.title"/>
-                <br/><br/>
-			</t>
-		</xpath>
-		
-		<!-- REVISIONES -->
-		<xpath expr="//div[@id='cover']" position="after">
-			<t t-set="rev_old_revision_ids" t-value="o.old_revision_ids.sorted(key=lambda r: r.id)"/>
-			<table class="col-md-12 col-xs-12 table-revs">
-				<thead>
-					<tr>
-						<th class="col-md-2 col-xs-2">Nº Revision</th>
-						<th class="col-md-2 col-xs-2">Date</th>
-						<th>Revision Notes</th>
-					</tr>
-				</thead>
-				<tbody>                                        
-                    <tr t-foreach="rev_old_revision_ids" t-as="rev">
-						<td><span t-esc="'Rev%d' % rev.revision_number or 0"/></td>
-						<td><span t-field="rev.create_date" t-field-options="{&quot;format&quot;: &quot;dd/MM/yy&quot;}"/></td>
-						<td><span t-field="rev.name"/> - <span t-field="rev.revision_note"/></td>
-					</tr>
-                    <t t-if="len(o.old_revision_ids) == 0">
-                    	<td><span t-esc="'Rev%d' % len(rev_old_revision_ids) or 0"/></td>
-					    <td><span t-field="o.date_order" t-field-options="{&quot;format&quot;: &quot;dd/MM/yy&quot;}"/></td>
-					    <td><span t-field="o.name"/> - <span t-field="o.revision_note"/></td>
-                    </t>
-					<!--t t-if="len(o.old_revision_ids) &lt; 3">
-						<tr t-foreach="range(3-len(o.old_revision_ids))" t-as="i">
-							<td>&amp;nbsp;</td><td>&amp;nbsp;</td><td>&amp;nbsp;</td>
-						</tr>
-					</t-->
-				</tbody>
-			</table>
-		</xpath>
-		
-		<!-- TEXTO LEGAL -->
-		<xpath expr="//span[@class='page-end']" position="after">
-			<!-- PAGE BREAK -->
-			<p style="page-break-after:always;"> </p>
-			<!-- -->
-			<span>&amp;nbsp;</span>
+        <xpath expr="//div[@id='cover']/img[@src='/logo.png']" position="before">
             <div class="row">
-            	<div  class="col-md-12" id="content_chapter_summary">
-					<table id="chapter_summary" class="table table-condensed">
-						<thead>
-							<tr>
-								<th colspan="3"  style="font-size:16px">Presupuesto de Ejecuci&amp;oacute;n material</th>
-							</tr>
-						</thead>
-						<tbody>
-			            	<t t-set="chapters" t-value="request.env['sale_order_chapters.chapter'].search([('id', 'in', o.order_line.mapped('chapter_id.id'))], order='seq ASC')"/>
-							<t t-set="numChapters" t-value="1"/>
-							<tr t-foreach="chapters" t-as="c" class="chapter_summary_line">
-								<t t-set="lines_r" t-value="request.env['sale.order.line'].search([('order_id','=',o.id),('chapter_id', '=', c.id)])"/>
-								<t t-set="sum_price" t-value="sum(line.price_subtotal for line in lines_r)"/>
-								<td>
-									<strong t-esc="'%d %s' % (numChapters,c.name)"/>	
-								</td>
-	                                                        <td>&amp;nbsp;</td>       
-								<td class="sum_chapter_price text-right" >
-									<strong t-esc="sum_price" t-esc-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/>	
-								</td>
-	                            <t t-set="numChapters" t-value="numChapters + 1"/>
-							</tr>
-	                        <tr class="summary_chapter_amount">
-	                        	<td>&amp;nbsp;</td>
-	                            <td class="text-right">Total.....:</td>
-	                            <td class="text-right"><span t-field="o.amount_untaxed" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/></td>
-	                        </tr>
-						</tbody>
-					</table>
-                </div>      
+                <div class="col-md-offset-8 col-xs-offset-8 col-md-4 col-xs-4">
+                    <img src="/aloxa_ingalux/static/src/img/SelloISO__CE.jpg" class="img img-responsive pull-right" style="height:100px;"/>
+                </div>
             </div>
-			<ul style="margin:3px 30px;">
-				<li><p t-field="o.note"/></li>
-			</ul>
-			<ul>
-			<div class="row" id="cert_info" style="margin-left:8px;margin-right:5px;">
+        </xpath>
+
+        <!-- TITULO -->
+        <xpath expr="//div[@id='cover']/h4" position="before">
+            <t t-if="o.title">
+                <br/><br/>
+                <h4>For:</h4>
+
+                <h3 style="padding-left:150px;padding-right:150px;" t-field="o.title"/>
+                <br/><br/>
+            </t>
+        </xpath>
+
+        <!-- REVISIONES -->
+        <xpath expr="//div[@id='cover']" position="after">
+            <t t-set="rev_old_revision_ids" t-value="o.old_revision_ids.sorted(key=lambda r: r.id)"/>
+	    <t t-if="len(o.old_revision_ids) > 0">
+            <table class="col-md-12 col-xs-12 table-revs">
+                <thead>
+                    <tr>
+                        <th class="col-md-2 col-xs-2">Nº Revision</th>
+                        <th class="col-md-2 col-xs-2">Date</th>
+                        <th>Revision Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="rev_old_revision_ids" t-as="rev">
+                        <td><span t-esc="'Rev%d' % rev.revision_number or 0"/></td>
+                        <td><span t-field="rev.date_order" t-field-options="{&quot;format&quot;: &quot;dd/MM/yy&quot;}"/></td>
+                        <t t-if="rev_index  &lt; len(rev_old_revision_ids)-1">
+                             <td><span t-field="rev.name"/> - <span t-esc="rev_old_revision_ids[rev_index+1].revision_note"/></td>
+                        </t>
+                        <t t-if="rev_index == len(rev_old_revision_ids)-1">
+                             <td><span t-field="rev.name"/> - <span t-field="o.revision_note"/></td>
+                        </t>
+                    </tr>                    
+                </tbody>
+            </table>
+	    </t>
+        </xpath>
+
+        <!-- TEXTO LEGAL -->
+        <xpath expr="//span[@class='page-end']" position="after">
+            <!-- PAGE BREAK -->
+            <p style="page-break-after:always;"> </p>
+            <!-- -->
+            <span>&amp;nbsp;</span>
+            <div class="row">
+                <div  class="col-md-12" id="content_chapter_summary">
+                    <table id="chapter_summary" class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th colspan="3"  style="font-size:16px">Presupuesto de Ejecuci&amp;oacute;n material</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="chapters" t-value="request.env['sale_order_chapters.chapter'].search([('id', 'in', o.order_line.mapped('chapter_id.id'))], order='seq ASC')"/>
+                            <t t-set="numChapters" t-value="1"/>
+                            <tr t-foreach="chapters" t-as="c" class="chapter_summary_line">
+                                <t t-set="lines_r" t-value="request.env['sale.order.line'].search([('order_id','=',o.id),('chapter_id', '=', c.id)])"/>
+                                <t t-set="sum_price" t-value="sum(line.price_subtotal for line in lines_r)"/>
+                                <td>
+                                    <strong t-esc="'%d %s' % (numChapters,c.name)"/>
+                                </td>
+                                                            <td>&amp;nbsp;</td>
+                                <td class="sum_chapter_price text-right" >
+                                    <strong t-esc="sum_price" t-esc-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/>
+                                </td>
+                                <t t-set="numChapters" t-value="numChapters + 1"/>
+                            </tr>
+                            <tr class="summary_chapter_amount">
+                                <td>&amp;nbsp;</td>
+                                <td class="text-right">Total.....:</td>
+                                <td class="text-right"><span t-field="o.amount_untaxed" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ul style="margin:3px 30px;">
+                <li><p t-field="o.note"/></li>
+            </ul>
+            <t t-if="numChapters > 10">
+                <!-- PAGE BREAK -->
+                <p style="page-break-after:always;"> </p>
+            </t>
+            <ul>
+            <div class="row" id="cert_info" style="margin-left:8px;margin-right:5px;">
                                    <table>
                                        <body>
-						<tr>
-							<td class="col-md-9 col-xs-9" style="vertical-align:middle;">
-								<p>Los componentes estructurales de acero fabricados por <strong>Montajes Metálicos Ingalux S.L.</strong> cumplen con las exigencias establecidas en la norma EN 1090-1 y disponen de <strong>marcado CE</strong>, tal y como obliga el Reglamento Europeo de Productos de Construcción nº 305/211.</p>
-								<p><strong>Nº de certificado: 1035-CPR-ES057882. Clase de ejecución EXC.2 (<a href="http://www.ingalux.com/UserFiles/ingalux/CertificadoCPFUNEEN1090.pdf">Ver certificado</a>)</strong></p>
-							</td>
-							<td class="col-md-3 col-xs-3" style="vertical-align:bottom;">
-								<img src="/aloxa_ingalux/static/src/img/SelloCE.jpg" class="img img-responsive pull-right" style="height:70px;"/>
-								<img src="/aloxa_ingalux/static/src/img/QR_SelloCE.png" class="img img-responsive pull-left" style="height:70px; vertical-align:bottom;"/>
-								<div style="clear:both;"/>
-							</td>
-						</tr>
+                        <tr>
+                            <td class="col-md-9 col-xs-9" style="vertical-align:middle;">
+                                <p>Los componentes estructurales de acero fabricados por <strong>Montajes Metálicos Ingalux S.L.</strong> cumplen con las exigencias establecidas en la norma EN 1090-1 y disponen de <strong>marcado CE</strong>, tal y como obliga el Reglamento Europeo de Productos de Construcción nº 305/211.</p>
+                                <p><strong>Nº de certificado: 1035-CPR-ES057882. Clase de ejecución EXC.2 (<a href="http://www.ingalux.com/UserFiles/ingalux/CertificadoCPFUNEEN1090.pdf">Ver certificado</a>)</strong></p>
+                            </td>
+                            <td class="col-md-3 col-xs-3" style="vertical-align:bottom;">
+                                <img src="/aloxa_ingalux/static/src/img/SelloCE.jpg" class="img img-responsive pull-right" style="height:70px;"/>
+                                <img src="/aloxa_ingalux/static/src/img/QR_SelloCE.png" class="img img-responsive pull-left" style="height:70px; vertical-align:bottom;"/>
+                                <div style="clear:both;"/>
+                            </td>
+                        </tr>
                                </body>
                                        </table>
-			</div>
-			</ul>
-			<ul id="inga_info">                                
-				<li>
-					<strong>&amp;#10003; SEGURIDAD</strong><br/>
-					Montajes Metálicos Ingalux, S. L cumplirá con todas las normas de obligado cumplimento en aplicación a la Ley de Prevención de Riesgos Laborales y el Reglamento de los Servicios de Prevención. De igual manera Montajes Metálicos Ingalux, S.L cumplirá lo dispuesto en el R.D 1627/1997 por el que se establecen disposiciones mínimas de seguridad y salud en las obras de construcción, y será responsable de cumplir y hacer cumplir a su personal lo establecido en el Plan de Seguridad y Salud.
-				</li>
-				<li>
-					<strong>&amp;#10003; NOTAS ACLARATORIAS</strong><br/>
-					Todas las partidas de este pedido serán propiedad de Montajes Metálicos Ingalux, S.L hasta su total pago no siendo de nuestra responsabilidad las instalaciones anexas a estas realizadas por otros aún en el caso de retirada de nuestros materiales. El suministro eléctrico, albañilería, permisos y custodia de los materiales serán por cuenta y responsabilidad del cliente.
-				</li>
-				<li>
-					<strong>&amp;#10003; FORMA DE PAGO</strong><br/>
-					La forma de pago será a falta de otro convenio expreso y firmado de las partes la siguiente:<br/>
-					<span id="forma_pago_info">
-						El plazo de pago máximo es de 60 días, según la Ley 15/2010 de 5 Julio de medidas de lucha contra la morosidad de las operaciones comerciales.
-					</span>
-					El incumplimiento de cualquiera de las obligaciones de pago dará derecho a Montajes Metálicos Ingalux, S.L. a, paralizar la ejecución del resto de la obra hasta el completo pago, y a reclamar al cliente el importe adeudado y demás gastos producidos hasta la fecha del incumplimiento, devengándose automáticamente y sin necesidad de requerimiento previo los intereses moratorios establecidos en la Ley 15/2010, de 5 de  Julio, por la que se establecen medidas de lucha contra la morosidad en las operaciones comerciales, o la que la pueda sustituir.
-				</li>
-				<li>
-					<strong>&amp;#10003; VALIDEZ DE LA OFERTA</strong><br/>
-					Oferta válida para <strong>30 días</strong> debido al estado del mercado del acero y de los materiales, en caso de ser superado este tiempo se procedería a revisar los precios.
-				</li>
-			</ul>
-			<strong id="order_sale_date">En Lugo a <span t-field="o.date_order" t-field-options='{"format": "dd"}' /> de <span t-field="o.date_order" t-field-options='{"format": "MMMM"}' /> del <span t-field="o.date_order" t-field-options='{"format": "yyyy"}' /> </strong> 
-			<div class="row" style="margin-left:50px; margin-top:10px;">
-				<div class="col-md-6 col-xs-6">
-					<p t-field="o.company_id.name"/>
-                    	<div class="backgroundimage" style="position:absolute;opacity:1,font-size:1em;width:50%;height:50%;z-index:1000;">
-                        	<img src="/aloxa_ingalux/static/src/img/firmasello.jpg"  style="height:80px;"/>
+            </div>
+            </ul>
+            <ul id="inga_info">
+                <li>
+                    <strong>&amp;#10003; SEGURIDAD</strong><br/>
+                    Montajes Metálicos Ingalux, S. L cumplirá con todas las normas de obligado cumplimento en aplicación a la Ley de Prevención de Riesgos Laborales y el Reglamento de los Servicios de Prevención. De igual manera Montajes Metálicos Ingalux, S.L cumplirá lo dispuesto en el R.D 1627/1997 por el que se establecen disposiciones mínimas de seguridad y salud en las obras de construcción, y será responsable de cumplir y hacer cumplir a su personal lo establecido en el Plan de Seguridad y Salud.
+                </li>
+                <li>
+                    <strong>&amp;#10003; NOTAS ACLARATORIAS</strong><br/>
+                    Todas las partidas de este pedido serán propiedad de Montajes Metálicos Ingalux, S.L hasta su total pago no siendo de nuestra responsabilidad las instalaciones anexas a estas realizadas por otros aún en el caso de retirada de nuestros materiales. El suministro eléctrico, albañilería, permisos y custodia de los materiales serán por cuenta y responsabilidad del cliente.
+                </li>
+                <li>
+                    <strong>&amp;#10003; FORMA DE PAGO</strong><br/>
+                    La forma de pago será a falta de otro convenio expreso y firmado de las partes la siguiente:<br/>
+                    <span id="forma_pago_info">
+                        El plazo de pago máximo es de 60 días, según la Ley 15/2010 de 5 Julio de medidas de lucha contra la morosidad de las operaciones comerciales.
+                    </span>
+                    El incumplimiento de cualquiera de las obligaciones de pago dará derecho a Montajes Metálicos Ingalux, S.L. a, paralizar la ejecución del resto de la obra hasta el completo pago, y a reclamar al cliente el importe adeudado y demás gastos producidos hasta la fecha del incumplimiento, devengándose automáticamente y sin necesidad de requerimiento previo los intereses moratorios establecidos en la Ley 15/2010, de 5 de  Julio, por la que se establecen medidas de lucha contra la morosidad en las operaciones comerciales, o la que la pueda sustituir.
+                </li>
+                <li>
+                    <strong>&amp;#10003; VALIDEZ DE LA OFERTA</strong><br/>
+                    Oferta válida para <strong>30 días</strong> debido al estado del mercado del acero y de los materiales, en caso de ser superado este tiempo se procedería a revisar los precios.
+                </li>
+            </ul>
+            <strong id="order_sale_date">En Lugo a <span t-field="o.date_order" t-field-options='{"format": "dd"}' /> de <span t-field="o.date_order" t-field-options='{"format": "MMMM"}' /> del <span t-field="o.date_order" t-field-options='{"format": "yyyy"}' /> </strong>
+            <div class="row" style="margin-left:50px; margin-top:10px;">
+                <div class="col-md-6 col-xs-6">
+                    <p t-field="o.company_id.name"/>
+                        <div class="backgroundimage" style="position:absolute;opacity:1,font-size:1em;width:50%;height:50%;z-index:1000;">
+                            <img src="/aloxa_ingalux/static/src/img/firmasello.jpg"  style="height:80px;"/>
                             <p>Fdo. Jose Luis Carreira</p>
-                        </div>                                                                                               
-				</div>
-				<div class="col-md-6 col-xs-6">
-					<p>Conforme:</p>
-				</div>
-			</div>
-		</xpath>
-	</template>
-	
+                        </div>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <p>Conforme:</p>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
 </data>
 </openerp>
+

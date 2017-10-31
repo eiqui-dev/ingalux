@@ -36,6 +36,8 @@
         'sale_order_chapters',
         'sale_order_revision',
         'website_quote',
+        'account_due_list_payment_mode',
+	'sale_order_revision',
     ],
     "data": [
         'views/reports/inherit_sale_order_chapters_external_layout_header.xml',
@@ -52,7 +54,10 @@
         'views/inherit_res_partner.xml',
         'views/contrac_contact.xml',
         'views/inherit_account_analytic_account.xml',
-        'views/inherit_purchase_order.xml'
+        'views/inherit_purchase_order.xml',
+	'views/inherit_account_invoice.xml',
+	'views/inherit_account_move_line.xml',
+	'views/inherit_sale_order_line.xml',
     ],
     
     "demo": [],

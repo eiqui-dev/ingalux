@@ -19,9 +19,13 @@
 #
 ##############################################################################
 from . import inherit_sale_order
+from . import inherit_account_move_line
+from . import inherit_account_invoice
 from . import contrac_contact
 from . import inherit_res_partner
 from . import inherit_account_analytic_account
 from . import inherit_website_quote_sale_quote_line
 from . import inherit_purchase_order
 from . import inherit_sale_order_line
+from . import inherit_product
+from . import inherit_purchase_order_line

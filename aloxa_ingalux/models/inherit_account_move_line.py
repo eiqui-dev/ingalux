@@ -21,12 +21,9 @@
 from openerp.osv import fields, osv
 
 
-class purchase_order(osv.osv):
-    _inherit = 'purchase.order'
-
+class account_move_line(osv.osv):
+    _inherit = 'account.move.line'
 
     _columns = {
-        'contract_id': fields.related('order_line', 'account_analytic_id', type='many2one', relation='account.analytic.account', string='Contract'),
-	'direccion_destino': fields.many2one('res.partner','Destino'),
-        'partner_ref': fields.char('Supplier Reference', states={'confirmed':[('readonly',False)],'approved':[('readonly',False)],'done':[('readonly',False)]}),
+       'bank_id': fields.related('payment_mode_id', 'bank_id', type='many2one', relation='res.partner.bank', string='Banco', store=True)
     }

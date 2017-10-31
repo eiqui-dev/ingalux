@@ -18,15 +18,16 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.osv import fields, osv
+from openerp import models, fields, api
+import html2text
 
+class product_template(models.Model):
+    _inherit = 'product.template'
 
-class purchase_order(osv.osv):
-    _inherit = 'purchase.order'
+    description_sale = fields.Html('Description')
 
-
-    _columns = {
-        'contract_id': fields.related('order_line', 'account_analytic_id', type='many2one', relation='account.analytic.account', string='Contract'),
-	'direccion_destino': fields.many2one('res.partner','Destino'),
-        'partner_ref': fields.char('Supplier Reference', states={'confirmed':[('readonly',False)],'approved':[('readonly',False)],'done':[('readonly',False)]}),
-    }
+class product_product(models.Model):
+    _inherit = 'product.product'
+    
+    description_sale = fields.Html('Description')
+    

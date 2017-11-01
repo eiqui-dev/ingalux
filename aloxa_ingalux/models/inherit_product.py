@@ -25,11 +25,10 @@ class product_template(models.Model):
     _inherit = 'product.template'
 
     description_sale = fields.Html('Description')
-    price_on_uom = fields.Boolean('Price Based on Uom')
-    uom_qty = fields.Float('Qty by uom')
 
 class product_product(models.Model):
     _inherit = 'product.product'
     
     description_sale = fields.Html('Description')
-    
+    price_on_uom = fields.Boolean('Price Based on Uom')
+    uom_qty = fields.Float('Qty by uom')    

@@ -58,6 +58,8 @@
 	'views/inherit_account_invoice.xml',
 	'views/inherit_account_move_line.xml',
 	'views/inherit_sale_order_line.xml',
+	'views/inherit_product.xml',
+	'views/inherit_purchase_order_line.xml',
     ],
     
     "demo": [],

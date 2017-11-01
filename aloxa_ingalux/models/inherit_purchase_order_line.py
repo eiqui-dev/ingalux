@@ -20,11 +20,41 @@
 ##############################################################################
 from openerp.osv import fields, osv
 
-
 class purchase_order_line(osv.osv):
     _inherit = 'purchase.order.line'
-
+    
 
     _columns = {
 	'partner_ref': fields.char('Supplier Reference', states={'confirmed':[('readonly',False)],'approved':[('readonly',False)],'done':[('readonly',False)]}),
+	'uom_qty': fields.float('Qty by Uom'),
+	'price_on_uom': fields.boolean('Price Based in Uom'),
+	'price_by_uom': fields.float('Price in Uom'),
     }
+
+    def onchange_product_id(self, cr, uid, ids, pricelist_id, product_id, qty, uom_id,
+            partner_id, date_order=False, fiscal_position_id=False, date_planned=False,
+            name=False, price_unit=False, state='draft', context=None):
+	res = super(purchase_order_line, self).onchange_product_id(cr, uid, ids, pricelist_id, product_id, qty, uom_id,
+            partner_id, date_order=False, fiscal_position_id=False, date_planned=False,
+            name=False, price_unit=False, state='draft', context=context)
+	product = self.pool.get('product.product').browse(cr,uid,product_id,context=context)
+	if product and product.price_on_uom:
+		if context.get('uom_qty') or context.get('price_by_uom'):
+			if context.get ('product_qty'): # If change the product qty we must recalcule the price based on pricelist 
+				price_by_uom = res['value']['price_unit']
+			else: # Else we use the price in form
+				price_by_uom = context.get('price_by_uom')
+			price_uom_calc = context.get('uom_qty') * price_by_uom
+		else:
+			price_uom_calc = product.uom_qty * res['value']['price_unit']
+			price_by_uom = res['value']['price_unit']
+			res['value'].update({
+                         	'uom_qty' : product.uom_qty,
+				'price_by_uom' : price_by_uom,
+                		})
+		res['value'].update({
+			'price_on_uom' : product.price_on_uom,
+			'price_unit' : price_uom_calc,
+		})
+	return res
+

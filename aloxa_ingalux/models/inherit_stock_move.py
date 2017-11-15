@@ -23,4 +23,5 @@ from openerp import models, fields, api
 class StockMove(models.Model):
     _inherit = 'stock.move'
 
-    analytics_id = fields.Many2one(comodel_name='account.analytic.plan.instance',string='Distribucion', related='purchase_line_id.analytics_id')
+    contract_id = fields.Many2one('account.analytic.account', 'Contrato', related='purchase_line_id.order_id.contract_id')
+    supplier_id = fields.Many2one('res.partner', 'Proveedor', related='purchase_line_id.partner_id')

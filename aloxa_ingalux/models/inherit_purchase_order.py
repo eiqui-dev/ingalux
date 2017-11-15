@@ -26,7 +26,7 @@ class purchase_order(osv.osv):
 
 
     _columns = {
-        'contract_id': fields.related('order_line', 'account_analytic_id', type='many2one', relation='account.analytic.account', string='Contract'),
+        'contract_id' : fields.many2one('account.analytic.account', 'Contrato'),
 	'direccion_destino': fields.many2one('res.partner','Destino'),
         'partner_ref': fields.char('Supplier Reference', states={'confirmed':[('readonly',False)],'approved':[('readonly',False)],'done':[('readonly',False)]}),
     }

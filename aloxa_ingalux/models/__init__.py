@@ -29,3 +29,5 @@ from . import inherit_purchase_order
 from . import inherit_sale_order_line
 from . import inherit_product
 from . import inherit_purchase_order_line
+from . import inherit_stock_move
+

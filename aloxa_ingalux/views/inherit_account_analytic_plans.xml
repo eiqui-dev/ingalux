@@ -1,0 +1,18 @@
+<openerp>
+	<data>
+		<record model="ir.actions.act_window" id="account_analytic_distribution_form_action">
+        		<field name="name">Analytic Distribution</field>
+		        <field name="type">ir.actions.act_window</field>
+		        <field name="res_model">account.analytic.plan.instance</field>
+		        <field name="view_type">form</field>
+		        <field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem
+		        parent="account.menu_analytic_accounting"
+		        name="Distribuciones"
+		        id="menu_account_analytic_plan_instance_action"
+		        groups="analytic.group_analytic_accounting"
+			action="account_analytic_distribution_form_action"/>
+	</data>
+</openerp>

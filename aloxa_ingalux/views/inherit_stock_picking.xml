@@ -1,0 +1,11 @@
+<openerp>
+	<data>
+
+		 <menuitem
+                 parent="purchase.menu_procurement_management"
+                 name="Albaranes"
+                 id="menu_action_picking_to_invoice_purchase"
+                 action="purchase.action_picking_tree_picking_to_invoice"/>		
+
+	</data>
+</openerp>

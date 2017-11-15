@@ -60,6 +60,8 @@
 	'views/inherit_sale_order_line.xml',
 	'views/inherit_product.xml',
 	'views/inherit_purchase_order_line.xml',
+	'views/inherit_account_analytic_plans.xml',
+	'views/inherit_stock_picking.xml',
     ],
     
     "demo": [],

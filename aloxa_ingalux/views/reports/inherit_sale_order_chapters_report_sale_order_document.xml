@@ -54,7 +54,7 @@
         <!-- TEXTO LEGAL -->
         <xpath expr="//span[@class='page-end']" position="after">
             <!-- PAGE BREAK -->
-            <p style="page-break-after:always;"> </p>
+            <p style="page-break-after:always;clear:both;"> </p>
             <!-- -->
             <span>&amp;nbsp;</span>
             <div class="row">

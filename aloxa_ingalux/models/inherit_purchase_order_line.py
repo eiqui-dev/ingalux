@@ -56,5 +56,10 @@ class purchase_order_line(osv.osv):
 			'price_on_uom' : product.price_on_uom,
 			'price_unit' : price_uom_calc,
 		})
+	if product:
+                name = product.with_context(display_default_code=False).display_name
+                if product.description_purchase:
+                        name += '\n' + product.description_purchase
+                res['value'].update({'name': name})
 	return res
 

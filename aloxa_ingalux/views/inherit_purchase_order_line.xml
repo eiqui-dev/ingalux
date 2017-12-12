@@ -9,8 +9,8 @@
 	        
 	        	<xpath expr="//field[@name='price_unit']" position="after">
 				<field name="price_on_uom" invisible="1"/>
-	        		<field name="uom_qty" attrs="{'invisible':[('price_on_uom','=', False)]}" on_change="onchange_product_id(parent.pricelist_id,product_id,0,False,parent.partner_id, parent.date_order,parent.fiscal_position,date_planned,False,False,parent.state,context)" context="{'price_by_uom': price_by_uom, 'uom_qty': uom_qty}"/>
-                                <field name="price_by_uom" attrs="{'invisible':[('price_on_uom','=', False)]}" on_change="onchange_product_id(parent.pricelist_id,product_id,0,False,parent.partner_id, parent.date_order,parent.fiscal_position,date_planned,False,False,parent.state,context)" context="{'price_by_uom': price_by_uom, 'uom_qty': uom_qty}"/>
+	        		<field name="uom_qty" attrs="{'invisible':[('price_on_uom','=', False)]}" on_change="onchange_product_id(parent.pricelist_id,product_id,product_qty,False,parent.partner_id, parent.date_order,parent.fiscal_position,date_planned,False,False,parent.state,context)" context="{'price_by_uom': price_by_uom, 'uom_qty': uom_qty}"/>
+                                <field name="price_by_uom" attrs="{'invisible':[('price_on_uom','=', False)]}" on_change="onchange_product_id(parent.pricelist_id,product_id,product_qty,False,parent.partner_id, parent.date_order,parent.fiscal_position,date_planned,False,False,parent.state,context)" context="{'price_by_uom': price_by_uom, 'uom_qty': uom_qty}"/>
 	        	</xpath>	
 			<xpath expr="//field[@name='product_qty']" position="replace">
 				<field name="product_qty" on_change="onchange_product_id(parent.pricelist_id,product_id,product_qty,product_uom,parent.partner_id,parent.date_order,parent.fiscal_position,date_planned,name,False,'draft',context)" class="oe_inline" context="{'price_by_uom': price_by_uom, 'uom_qty': uom_qty, 'product_qty': True}"/>

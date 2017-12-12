@@ -19,6 +19,8 @@
 #
 ##############################################################################
 from openerp.osv import fields, osv
+import logging
+_logger = logging.getLogger(__name__)
 
 class purchase_order_line(osv.osv):
     _inherit = 'purchase.order.line'
@@ -34,13 +36,17 @@ class purchase_order_line(osv.osv):
     def onchange_product_id(self, cr, uid, ids, pricelist_id, product_id, qty, uom_id,
             partner_id, date_order=False, fiscal_position_id=False, date_planned=False,
             name=False, price_unit=False, state='draft', context=None):
-	res = super(purchase_order_line, self).onchange_product_id(cr, uid, ids, pricelist_id, product_id, qty, uom_id,
-            partner_id, date_order=False, fiscal_position_id=False, date_planned=False,
-            name=False, price_unit=False, state='draft', context=context)
 	product = self.pool.get('product.product').browse(cr,uid,product_id,context=context)
+	_logger.info("ANTES")
+	_logger.info(qty)
+	res = super(purchase_order_line, self).onchange_product_id(cr, uid, ids, pricelist_id, product_id, qty, uom_id,
+		partner_id, date_order=False, fiscal_position_id=False, date_planned=False,
+                name=False, price_unit=False, state='draft', context=context)
+	_logger.info("DESPOIS")
+        _logger.info(qty)
 	if product and product.price_on_uom:
 		if context.get('uom_qty') or context.get('price_by_uom'):
-			if context.get ('product_qty'): # If change the product qty we must recalcule the price based on pricelist 
+			if context.get('product_qty'): # If change the product qty we must recalcule the price based on pricelist 
 				price_by_uom = res['value']['price_unit']
 			else: # Else we use the price in form
 				price_by_uom = context.get('price_by_uom')
@@ -61,5 +67,9 @@ class purchase_order_line(osv.osv):
                 if product.description_purchase:
                         name += '\n' + product.description_purchase
                 res['value'].update({'name': name})
+	if product and not product.price_on_uom:
+		res['value'].update({
+			'price_on_uom' : product.price_on_uom,
+			)}
 	return res
 

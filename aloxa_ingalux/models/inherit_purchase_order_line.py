@@ -70,6 +70,6 @@ class purchase_order_line(osv.osv):
 	if product and not product.price_on_uom:
 		res['value'].update({
 			'price_on_uom' : product.price_on_uom,
-			)}
+			})
 	return res
 

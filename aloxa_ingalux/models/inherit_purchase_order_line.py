@@ -37,13 +37,9 @@ class purchase_order_line(osv.osv):
             partner_id, date_order=False, fiscal_position_id=False, date_planned=False,
             name=False, price_unit=False, state='draft', context=None):
 	product = self.pool.get('product.product').browse(cr,uid,product_id,context=context)
-	_logger.info("ANTES")
-	_logger.info(qty)
 	res = super(purchase_order_line, self).onchange_product_id(cr, uid, ids, pricelist_id, product_id, qty, uom_id,
 		partner_id, date_order=False, fiscal_position_id=False, date_planned=False,
                 name=False, price_unit=False, state='draft', context=context)
-	_logger.info("DESPOIS")
-        _logger.info(qty)
 	if product and product.price_on_uom:
 		if context.get('uom_qty') or context.get('price_by_uom'):
 			if context.get('product_qty'): # If change the product qty we must recalcule the price based on pricelist 
